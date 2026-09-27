@@ -59,10 +59,12 @@ func (r *subscriptionResource) Schema(_ context.Context, _ resource.SchemaReques
 			},
 			"subscription_id": schema.StringAttribute{
 				Computed:      true,
+				Description:   "The claimed subscription's id, to feed into the azurerm provider.",
 				PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown()},
 			},
 			"id": schema.StringAttribute{
 				Computed:      true,
+				Description:   "Same as subscription_id.",
 				PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown()},
 			},
 			"from_pool": schema.BoolAttribute{

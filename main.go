@@ -11,6 +11,8 @@ import (
 	"github.com/instruqt/terraform-provider-azsubcache/internal/provider"
 )
 
+//go:generate go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs generate --provider-name azsubcache
+
 // version is set by the release build: -ldflags "-X main.version=1.2.3".
 var version = "dev"
 

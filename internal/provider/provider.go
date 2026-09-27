@@ -55,6 +55,13 @@ func (p *azProvider) Metadata(_ context.Context, _ provider.MetadataRequest, res
 
 func (p *azProvider) Schema(_ context.Context, _ provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = providerschema.Schema{
+		MarkdownDescription: "Hands out Azure subscriptions from a pool of pre-provisioned ones.\n\n" +
+			"`azsubcache_subscription` claims a subscription sitting in the pool management group and moves it to " +
+			"the claimed management group; only when the pool is empty does it create one, which is the slow, " +
+			"rate-limited path. Claims are arbitrated by a blob per subscription in `claim_container_url`, so " +
+			"parallel applies never hand out the same subscription twice.\n\n" +
+			"Authentication uses `DefaultAzureCredential`: environment variables, workload identity, managed " +
+			"identity or `az login`.",
 		Attributes: map[string]providerschema.Attribute{
 			"pool_management_group_id": providerschema.StringAttribute{
 				Optional:    true,

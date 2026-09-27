@@ -52,8 +52,15 @@ and the billing role to create subscriptions, plus Storage Blob Data Contributor
 on the claim container (the container is created on first use if missing, so
 double-check the URL: a typo gives you a private, empty lock namespace).
 
+Docs under `docs/` are generated from the schema and `examples/` — run
+`go generate ./...` after changing either. Releases are cut with
+`goreleaser release --clean` (needs `GPG_FINGERPRINT` for the key registered
+with the Terraform Registry).
+
 Build and use locally:
 
 ```
 go build -o ~/.terraform.d/plugins/registry.terraform.io/instruqt/azsubcache/0.1.0/darwin_arm64/terraform-provider-azsubcache
 ```
+
+MIT licensed, see `LICENSE`.

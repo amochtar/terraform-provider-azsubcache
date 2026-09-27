@@ -7,8 +7,8 @@ import (
 	"flag"
 	"log"
 
+	"github.com/amochtar/terraform-provider-azsubcache/internal/provider"
 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
-	"github.com/instruqt/terraform-provider-azsubcache/internal/provider"
 )
 
 //go:generate go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs generate --provider-name azsubcache
@@ -22,7 +22,7 @@ func main() {
 	flag.Parse()
 
 	err := providerserver.Serve(context.Background(), provider.New(version), providerserver.ServeOpts{
-		Address: "registry.terraform.io/instruqt/azsubcache",
+		Address: "registry.terraform.io/amochtar/azsubcache",
 		Debug:   debug,
 	})
 	if err != nil {

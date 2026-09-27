@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azsubcache = {
-      source = "instruqt/azsubcache"
+      source = "amochtar/azsubcache"
     }
   }
 }

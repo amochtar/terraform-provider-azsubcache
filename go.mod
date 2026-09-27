@@ -1,4 +1,4 @@
-module github.com/instruqt/terraform-provider-azsubcache
+module github.com/amochtar/terraform-provider-azsubcache
 
 go 1.25.8
 

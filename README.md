@@ -60,7 +60,7 @@ with the Terraform Registry).
 Build and use locally:
 
 ```
-go build -o ~/.terraform.d/plugins/registry.terraform.io/instruqt/azsubcache/0.1.0/darwin_arm64/terraform-provider-azsubcache
+go build -o ~/.terraform.d/plugins/registry.terraform.io/amochtar/azsubcache/0.1.0/darwin_arm64/terraform-provider-azsubcache
 ```
 
 MIT licensed, see `LICENSE`.

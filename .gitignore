@@ -1,0 +1,4 @@
+terraform-provider-azsubcache
+*.tfstate*
+.terraform/
+.terraform.lock.hcl

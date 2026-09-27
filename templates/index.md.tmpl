@@ -1,0 +1,28 @@
+---
+page_title: "{{.ProviderShortName}} Provider"
+description: |-
+{{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+---
+
+# {{.ProviderShortName}} Provider
+
+{{ .Description | trimspace }}
+
+{{ if .HasExample -}}
+## Example Usage
+
+{{ tffile .ExampleFile }}
+{{- end }}
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Filling the pool
+
+The provider only *claims* subscriptions. Creating them is rate limited, so the
+pool is refilled out of band — from cron, a scheduled pipeline, anything that
+drops subscriptions into the pool management group. With the Azure CLI:
+
+{{ codefile "shell" "examples/refill-pool.sh" }}
+
+The identity running this needs the billing role that can create subscriptions,
+plus Management Group Contributor on the pool group.

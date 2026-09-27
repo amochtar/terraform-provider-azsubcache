@@ -52,7 +52,10 @@ and the billing role to create subscriptions, plus Storage Blob Data Contributor
 on the claim container (the container is created on first use if missing, so
 double-check the URL: a typo gives you a private, empty lock namespace).
 
-Docs under `docs/` are generated from the schema and `examples/` — run
+Refill the pool out of band with `examples/refill-pool.sh` (plain `az` CLI); the
+provider never creates subscriptions while the pool has stock.
+
+Docs under `docs/` are generated from the schema, `templates/` and `examples/` — run
 `go generate ./...` after changing either. Releases are cut with
 `goreleaser release --clean` (needs `GPG_FINGERPRINT` for the key registered
 with the Terraform Registry).

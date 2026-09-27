@@ -19,9 +19,12 @@ description: |-
 
 ## Filling the pool
 
-The provider only *claims* subscriptions. Creating them is rate limited, so the
-pool is refilled out of band — from cron, a scheduled pipeline, anything that
-drops subscriptions into the pool management group. With the Azure CLI:
+The provider claims from the pool, and falls back to creating a subscription
+itself when the pool is empty and `billing_scope` is set. That fallback is the
+slow, rate-limited path — it keeps an apply from failing, it is not a refill
+strategy. Keep the pool stocked out of band instead: from cron, a scheduled
+pipeline, anything that drops subscriptions into the pool management group.
+With the Azure CLI:
 
 {{ codefile "shell" "examples/refill-pool.sh" }}
 
